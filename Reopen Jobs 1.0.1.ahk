@@ -1,6 +1,3 @@
-﻿; This script was created using Pulover's Macro Creator
-; www.macrocreator.com
-
 #NoEnv
 SetWorkingDir %A_ScriptDir%
 CoordMode, Mouse, Window
