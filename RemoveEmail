@@ -1,0 +1,12 @@
+Function RemoveEmail(EmailList, StringtoRemove)
+RemoveEmail = ""
+StringArray = Split(EmailList, ";")
+ArrayNum = UBound(StringArray) - LBound(StringArray) + 1
+For i = 0 To ArrayNum - 1
+    If InStr(StringArray(i), StringtoRemove) Then
+        StringArray(i) = ""
+    ElseIf StringArray(i) <> "" Then
+        RemoveEmail = RemoveEmail & StringArray(i) & ";"
+    End If
+Next i
+End Function
