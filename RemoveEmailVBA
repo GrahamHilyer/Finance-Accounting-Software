@@ -5,22 +5,18 @@ Dim OldList As String
 Dim MySelectionRange As Range
 StringtoRemove = InputBox("Enter String to Remove", "Remove String Macro")
 Set MySelectionRange = Selection
-
 For Each cell In MySelectionRange.Cells
-NewList = ""
-OldList = cell.Value
-EmailArray = Split(OldList, ";") ' Splits email lists into individual emails contained in array
-ArrayNum = UBound(EmailArray) - LBound(EmailArray) + 1
-For i = 0 To ArrayNum - 1
-    If InStr(EmailArray(i), StringtoRemove) Then 'Identifies emails to be removed
-        EmailArray(i) = ""
-    ElseIf EmailArray(i) <> "" Then 'Prevents unwanted semicolons appearing
-        NewList = NewList & EmailArray(i) & ";" ' Reassembles the email list less the unwanted email
-    End If
-Next i
-cell.Value = NewList
-
+    NewList = ""
+    OldList = cell.Value
+    EmailArray = Split(OldList, ";") ' Splits email lists into individual emails contained in array
+    ArrayNum = UBound(EmailArray) - LBound(EmailArray) + 1
+    For i = 0 To ArrayNum - 1
+        If InStr(EmailArray(i), StringtoRemove) Then 'Identifies emails to be removed
+            EmailArray(i) = ""
+        ElseIf EmailArray(i) <> "" Then 'Prevents unwanted semicolons appearing
+            NewList = NewList & EmailArray(i) & ";" ' Reassembles the email list less the unwanted email
+        End If
+    Next i
+    cell.Value = NewList
 Next cell
-
 End Sub
-
