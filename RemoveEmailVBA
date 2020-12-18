@@ -1,12 +1,12 @@
 Function RemoveEmail(EmailList, StringtoRemove)
 RemoveEmail = ""
-StringArray = Split(EmailList, ";")
+StringArray = Split(EmailList, ";") ' Splits email lists into individual emails contained in array
 ArrayNum = UBound(StringArray) - LBound(StringArray) + 1
 For i = 0 To ArrayNum - 1
-    If InStr(StringArray(i), StringtoRemove) Then
+    If InStr(StringArray(i), StringtoRemove) Then 'Identifies emails to be removed
         StringArray(i) = ""
-    ElseIf StringArray(i) <> "" Then
-        RemoveEmail = RemoveEmail & StringArray(i) & ";"
+    ElseIf StringArray(i) <> "" Then 'Prevents unwanted semicolons appearing 
+        RemoveEmail = RemoveEmail & StringArray(i) & ";" ' Reassembles the email list less the unwanted email  
     End If
 Next i
 End Function
