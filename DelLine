@@ -1,0 +1,10 @@
+Sub DelLine()
+Dim MySelectionRange As Range
+Set MySelectionRange = Selection
+
+For Each cell In MySelectionRange.Cells
+    cell.Value = "(DEL) " & cell.Value
+    cell.EntireRow.Font.Color = vbRed
+Next cell
+
+End Sub
